@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    background-color: #FAF9F6;
+    color: #242424;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: rgba(212, 168, 83, 0.3);
+    color: #2c2c2c;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/40 rounded-2xl shadow-glass;
+  }
+
+  .gold-text {
+    @apply bg-clip-text text-transparent bg-gold-gradient;
+    filter: drop-shadow(0 2px 4px rgba(212, 168, 83, 0.2));
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-3 rounded-full font-semibold tracking-wider hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-luxury hover:shadow-luxury-lg transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-600 px-8 py-3 rounded-full font-medium tracking-wide hover:bg-primary-500 hover:text-white transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+
+  .input-luxury {
+    @apply w-full px-4 py-3 bg-white/70 border border-primary-200/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400/30 focus:border-primary-400 transition-all duration-300 placeholder:text-gray-400 text-gray-700;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-center mb-4;
+  }
+
+  .section-subheading {
+    @apply text-gray-600/80 text-center max-w-2xl mx-auto mb-12 font-normal tracking-wide;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 83, 0.1) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .product-card {
+    @apply glass-card overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-luxury-lg hover:-translate-y-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4A853, #B8923E);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #B8923E, #9A7A33);
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid rgba(212, 168, 83, 0.2);
+  border-top: 3px solid #D4A853;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Star rating override */
+.star-ratings {
+  display: inline-flex !important;
+  align-items: center;
+}
